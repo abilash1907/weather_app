@@ -2,8 +2,14 @@ import streamlit as st
 import pyowm
 from datetime import datetime
 from collections import defaultdict
-import pandas as pd      
-owm=pyowm.OWM('e2acae24364ca45b1b65c43c8e770355')
+import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+API=os.getenv('API_KEY')
+
+owm=pyowm.OWM(API)
 mgr=owm.weather_manager()
 st.title('5-Days Temperature Graph')
 st.subheader("Give the Place's Name and Temperture Unit")
